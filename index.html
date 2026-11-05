@@ -1,176 +1,1374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Facebook Reels Downloader - Download FB Reels Video in HD Free</title>
-<meta name="description" content="Free Facebook Reels downloader. Paste a public Facebook Reel link and download the video in HD or SD quality on mobile or PC. No app, no login.">
-<meta name="keywords" content="facebook reels downloader, fb reels download, download facebook reels, facebook video downloader">
+
+<title>Facebook Reels Downloader - Download Reels Online Free</title>
+
+<meta name="description" content="Free Facebook Reels Downloader. Paste a supported video link, preview your video and download videos you own or have permission to save.">
+
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://example.com/facebook-reels-downloader/">
+
 <meta property="og:title" content="Facebook Reels Downloader">
-<meta property="og:description" content="Paste a public Facebook Reel link and download it in HD. Free, no login.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<meta property="og:description" content="Download supported Facebook videos online with our free video downloader tool.">
+<meta property="og:type" content="website">
+
 <style>
-:root{
-  --paper:#F3F6FC; --ink:#10203F; --muted:#56637E; --line:#D5DDEE;
-  --blue:#2A56F0; --blue-dark:#1B3FC4; --surface:#FFFFFF; --ok:#12805C; --err:#B3261E;
-  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
-  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+:root {
+  --primary: #5361e8;
+  --secondary: #493bc7;
+  --dark: #182238;
+  --text: #687287;
+  --bg: #f6f7fb;
+  --border: #e6e9f1;
 }
-@media (prefers-color-scheme: dark){
-  :root{--paper:#0D1324; --ink:#EAF0FF; --muted:#9AA8C7; --line:#26314F; --surface:#151D36; --blue:#6F8CFF; --blue-dark:#8FA5FF; --ok:#4CC9A0; --err:#FF8A80;}
+
+* {
+  box-sizing: border-box;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body)}
-a{color:var(--blue)}
-.wrap{max-width:760px;margin:0 auto;padding:0 20px}
-header{padding:18px 0;border-bottom:1px solid var(--line)}
-.brand{font:800 20px var(--display);letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
-.hero{padding:56px 0 28px}
-h1{font:800 clamp(34px,7vw,56px)/1.05 var(--display);letter-spacing:-.03em;margin:0 0 14px}
-.lead{color:var(--muted);margin:0 0 28px;max-width:56ch}
-.tool{background:var(--surface);border:2px solid var(--ink);border-radius:14px;padding:18px;box-shadow:6px 6px 0 var(--blue)}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-input[type=url]{flex:1 1 260px;min-width:0;font:inherit;padding:14px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
-input[type=url]:focus,button:focus-visible,a.btn:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-button,a.btn{font:700 16px var(--display);padding:14px 22px;border-radius:10px;border:0;background:var(--blue);color:#fff;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
-button:hover,a.btn:hover{background:var(--blue-dark)}
-button.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
-button.ghost:hover{background:var(--paper)}
-button[disabled]{opacity:.6;cursor:wait}
-#msg{margin:14px 0 0;min-height:1.4em;font-weight:600}
-#msg.err{color:var(--err)} #msg.ok{color:var(--ok)}
-#result{display:none;margin-top:18px;padding-top:18px;border-top:1px dashed var(--line)}
-#result.show{display:flex;gap:16px;flex-wrap:wrap}
-#thumb{width:130px;aspect-ratio:9/16;object-fit:cover;border-radius:10px;background:var(--line)}
-#info{flex:1 1 220px}
-#vtitle{font:700 18px/1.3 var(--display);margin:0 0 12px;overflow-wrap:anywhere}
-.dl{display:flex;flex-direction:column;gap:10px;max-width:280px}
-section{padding:36px 0}
-h2{font:700 28px/1.2 var(--display);letter-spacing:-.02em;margin:0 0 16px}
-ol{padding-left:22px;margin:0} li{margin:0 0 10px}
-details{border-bottom:1px solid var(--line);padding:14px 0}
-summary{font:700 18px var(--display);cursor:pointer}
-details p{margin:10px 0 0;color:var(--muted)}
-footer{border-top:1px solid var(--line);padding:26px 0 44px;color:var(--muted);font-size:15px}
-@media (prefers-reduced-motion:no-preference){button,a.btn{transition:background .15s}}
-@media (max-width:480px){.tool{padding:14px;box-shadow:4px 4px 0 var(--blue)} #thumb{width:100px}}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--dark);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1060px, calc(100% - 30px));
+  margin: auto;
+}
+
+/* HEADER */
+
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav {
+  min-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+.navlinks {
+  display: flex;
+  gap: 22px;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.navbtn {
+  background: var(--dark);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 11px;
+}
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  padding: 55px 0 35px;
+  position: relative;
+}
+
+.badge {
+  display: inline-block;
+  background: #eef0ff;
+  color: var(--primary);
+  border-radius: 30px;
+  padding: 6px 13px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(29px, 4vw, 44px);
+  line-height: 1.15;
+  margin: 17px 0 12px;
+  letter-spacing: -1px;
+}
+
+.description {
+  max-width: 650px;
+  margin: auto;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.chips {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 25px;
+}
+
+.chips span {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 6px 12px;
+  font-size: 10px;
+}
+
+/* DOWNLOADER */
+
+.downloader {
+  max-width: 760px;
+  margin: auto;
+  background: white;
+  padding: 16px;
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 35px #1b2b4a0c;
+  text-align: left;
+}
+
+.tabs {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.tab {
+  background: #f0f2f8;
+  border: 0;
+  padding: 10px 17px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tab.active {
+  background: #e9edff;
+  color: var(--primary);
+}
+
+.dropbox {
+  border: 2px dashed #cbd2e3;
+  border-radius: 12px;
+  background: #f8f9fc;
+  padding: 30px 15px;
+  text-align: center;
+  transition: .2s;
+}
+
+.dropbox.drag {
+  background: #eef0ff;
+  border-color: var(--primary);
+}
+
+.upload-icon {
+  font-size: 30px;
+  color: var(--primary);
+}
+
+.dropbox strong {
+  display: block;
+  font-size: 13px;
+}
+
+.dropbox small {
+  color: var(--text);
+  font-size: 10px;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+  max-width: 620px;
+  margin: 15px auto 0;
+}
+
+.input-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+}
+
+.input-row input:focus {
+  border-color: var(--primary);
+}
+
+.btn {
+  border: none;
+  background: linear-gradient(100deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  opacity: .9;
+}
+
+.status {
+  display: none;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+.status.show {
+  display: block;
+}
+
+.status.error {
+  background: #fff0f0;
+  color: #a63333;
+}
+
+.status.success {
+  background: #eaf8f1;
+  color: #14734d;
+}
+
+.status.info {
+  background: #eef3ff;
+  color: #354ca7;
+}
+
+.preview {
+  display: none;
+  margin-top: 15px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  gap: 12px;
+  align-items: center;
+}
+
+.preview.show {
+  display: flex;
+}
+
+.preview video {
+  width: 120px;
+  max-height: 100px;
+  background: #111;
+  border-radius: 7px;
+}
+
+.preview-info {
+  flex: 1;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* SECTIONS */
+
+section.content-section {
+  padding: 42px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 23px;
+  margin: 0 0 8px;
+}
+
+.section-description {
+  text-align: center;
+  color: var(--text);
+  font-size: 12px;
+  max-width: 650px;
+  margin: 0 auto 23px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 13px;
+}
+
+.card-icon {
+  background: #f0f1ff;
+  color: var(--primary);
+  height: 38px;
+  width: 38px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 14px;
+  margin: 0 0 7px;
+}
+
+.card p {
+  color: var(--text);
+  font-size: 11px;
+  margin: 0;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+}
+
+.split h2 {
+  font-size: 23px;
+  line-height: 1.25;
+}
+
+.split p {
+  color: var(--text);
+  font-size: 12px;
+}
+
+.visual {
+  background: linear-gradient(135deg,#293d7c,#7656ba,#ef9a82);
+  min-height: 170px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 50px;
+}
+
+.two-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.info-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 19px;
+}
+
+.info-card h3 {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.info-card p {
+  color: var(--text);
+  font-size: 11px;
+  margin: 0;
+}
+
+.notice {
+  background: white;
+  border: 1px solid #f0d78c;
+  border-left: 4px solid #f2b83f;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+/* FAQ */
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: .7fr 1.5fr;
+  gap: 30px;
+}
+
+.faq-list {
+  border-top: 1px solid var(--border);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-question {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--dark);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 10px 15px 5px;
+  color: var(--text);
+  font-size: 11px;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  text-align: center;
+  color: var(--text);
+  font-size: 10px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+@media(max-width:760px) {
+  .navlinks {
+    display: none;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .split,
+  .faq-layout,
+  .two-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-description {
+    padding: 0 5px;
+  }
+}
+
+@media(max-width:480px) {
+  .input-row {
+    flex-direction: column;
+  }
+
+  .input-row .btn {
+    width: 100%;
+  }
+
+  .preview {
+    flex-wrap: wrap;
+  }
+
+  .preview video {
+    width: 100%;
+    max-height: 200px;
+  }
+}
 </style>
+
+<!-- SEO WEB APPLICATION SCHEMA -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"Facebook Reels Downloader",
+ "applicationCategory":"MultimediaApplication",
+ "operatingSystem":"Any",
+ "description":"Free browser-based video downloader for direct video files users are authorized to save.",
+ "offers":{
+   "@type":"Offer",
+   "price":"0",
+   "priceCurrency":"USD"
+ }
+}
+</script>
+
+<!-- FAQ SCHEMA -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+ {
+  "@type":"Question",
+  "name":"What is Facebook Reels Downloader?",
+  "acceptedAnswer":{
+   "@type":"Answer",
+   "text":"Facebook Reels Downloader is a browser-based helper for saving videos you own or have permission to download."
+  }
+ },
+ {
+  "@type":"Question",
+  "name":"Is Facebook Reels Downloader free?",
+  "acceptedAnswer":{
+   "@type":"Answer",
+   "text":"Yes, this browser-based tool is free to use."
+  }
+ },
+ {
+  "@type":"Question",
+  "name":"Can I download Facebook Reels in HD?",
+  "acceptedAnswer":{
+   "@type":"Answer",
+   "text":"Video quality depends on the original video file. This tool cannot create higher resolution than the source."
+  }
+ },
+ {
+  "@type":"Question",
+  "name":"Can I download private Facebook Reels?",
+  "acceptedAnswer":{
+   "@type":"Answer",
+   "text":"No. This tool does not access private content or bypass login and access controls."
+  }
+ },
+ {
+  "@type":"Question",
+  "name":"Does this tool work on Android and iPhone?",
+  "acceptedAnswer":{
+   "@type":"Answer",
+   "text":"Yes, the responsive page works in modern mobile browsers. Download behavior depends on the browser and video host."
+  }
+ },
+ {
+  "@type":"Question",
+  "name":"Why is my Facebook Reel not downloading?",
+  "acceptedAnswer":{
+   "@type":"Answer",
+   "text":"A Facebook page URL is not a direct video file URL. Cross-origin restrictions and source permissions can prevent downloads."
+  }
+ }
+ ]
+}
+</script>
 </head>
+
 <body>
-<header><div class="wrap"><a class="brand" href="./">Reels Saver</a></div></header>
 
-<main class="wrap">
-  <div class="hero">
-    <h1>Facebook Reels Downloader</h1>
-    <p class="lead">Paste the link of a public Facebook Reel and save the video to your phone or computer in HD or SD quality. No app and no login.</p>
+<header>
+<div class="container nav">
+  <a href="#" class="logo">Reels<span>Save</span></a>
 
-    <div class="tool">
-      <div class="row">
-        <input id="url" type="url" inputmode="url" placeholder="https://www.facebook.com/reel/..." aria-label="Facebook Reel link" autocomplete="off">
-        <button id="paste" class="ghost" type="button">Paste</button>
-        <button id="go" type="button">Get video</button>
-      </div>
-      <p id="msg" role="status" aria-live="polite"></p>
+  <nav class="navlinks">
+    <a href="#downloader">Video Downloader</a>
+    <a href="#how">How It Works</a>
+    <a href="#features">Features</a>
+    <a href="#faq">FAQ</a>
+  </nav>
 
-      <div id="result">
-        <img id="thumb" alt="" hidden>
-        <div id="info">
-          <p id="vtitle"></p>
-          <div class="dl">
-            <a id="hd" class="btn" hidden>Download HD</a>
-            <a id="sd" class="btn" hidden>Download SD</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <a href="#downloader" class="navbtn">Free Tool ↗</a>
+</div>
+</header>
 
-  <section>
-    <h2>How to download a Facebook Reel</h2>
-    <ol>
-      <li>Open the Reel in the Facebook app or browser, tap Share, then Copy link.</li>
-      <li>Paste the link in the box above.</li>
-      <li>Tap Get video, then choose HD or SD to save the file.</li>
-    </ol>
-  </section>
+<main>
 
-  <section>
-    <h2>Questions</h2>
-    <details><summary>Does it work for private videos?</summary><p>No. Only public Reels and videos can be downloaded. If the video is private or limited to friends, the tool will show an error.</p></details>
-    <details><summary>Where is the video saved?</summary><p>On a phone it goes to your Downloads folder or the browser's download list. On a computer it goes to the Downloads folder.</p></details>
-    <details><summary>Which links are supported?</summary><p>Links from facebook.com, m.facebook.com and fb.watch, including Reels and normal public videos.</p></details>
-    <details><summary>Can I reuse any video I download?</summary><p>Download only your own videos or videos you have permission to save. Reels belong to their creators.</p></details>
-  </section>
+<!-- HERO AND DOWNLOADER -->
+
+<section class="hero container" id="downloader">
+
+<span class="badge">✦ FREE ONLINE VIDEO TOOL</span>
+
+<h1>Facebook Reels Downloader</h1>
+
+<p class="description">
+Save videos you own or are authorized to download.
+Paste a supported direct video link or select a video file
+from your device. No app installation required.
+</p>
+
+<div class="chips">
+<span>✓ Free to Use</span>
+<span>✓ Mobile Friendly</span>
+<span>✓ No Sign-up</span>
+<span>✓ Browser Based</span>
+</div>
+
+<div class="downloader">
+
+<div class="tabs">
+<button class="tab active" id="urlTab">↗ Video URL</button>
+<button class="tab" id="fileTab">▣ Select Video</button>
+</div>
+
+<div class="dropbox" id="dropbox">
+
+<div class="upload-icon">⇧</div>
+
+<strong id="dropTitle">
+Paste a direct video URL below
+</strong>
+
+<small id="dropSub">
+Direct MP4, WebM or browser-supported video URL
+</small>
+
+<div class="input-row" id="urlControls">
+
+<input
+type="url"
+id="videoUrl"
+placeholder="Paste direct video URL here..."
+aria-label="Video URL"
+>
+
+<button class="btn" id="loadBtn">
+Load Video
+</button>
+
+</div>
+
+<input type="file" id="fileInput" accept="video/*" hidden>
+
+<button class="btn" id="chooseBtn" style="display:none">
+Choose Video File
+</button>
+
+</div>
+
+<div id="status" class="status info" role="status"></div>
+
+<div class="preview" id="preview">
+
+<video id="videoPlayer" controls playsinline></video>
+
+<div class="preview-info">
+<strong id="fileName">Video Ready</strong>
+<p id="fileMeta">Preview your video before saving.</p>
+</div>
+
+<button class="btn" id="downloadBtn">
+Download Video
+</button>
+
+</div>
+</div>
+
+<p style="font-size:10px;color:#8991a3;margin-top:12px">
+Note: A normal Facebook Reel page URL cannot reliably be converted
+into a video file using frontend-only JavaScript.
+</p>
+
+</section>
+
+<!-- HOW TO DOWNLOAD -->
+
+<section class="content-section container" id="how">
+
+<h2 class="section-title">How to Download Facebook Reels</h2>
+
+<p class="section-description">
+Follow these simple steps to save a video you own or have permission to download.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="card-icon">🔗</div>
+<h3>1. Copy Video Link</h3>
+<p>
+Copy the direct video file URL from a source that allows you
+to download the video.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">↗</div>
+<h3>2. Paste Video URL</h3>
+<p>
+Paste your direct video link into the downloader or select
+a video file from your device.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">⇩</div>
+<h3>3. Download Video</h3>
+<p>
+Preview the video and click Download Video to save it
+when the source permits downloading.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="content-section container">
+
+<div class="split">
+
+<div>
+<h2>Simple Video Saving, Right in Your Browser</h2>
+
+<p>
+Facebook Reels Downloader provides a simple interface for
+working with supported video files. No account is required
+on this website.
+</p>
+
+<p>
+For Facebook content, use Facebook's own download controls
+where available, or use a direct video file link that you
+are authorized to download.
+</p>
+</div>
+
+<div class="visual">▶</div>
+
+</div>
+</section>
+
+<!-- FEATURES -->
+
+<section class="content-section container" id="features">
+
+<h2 class="section-title">Facebook Reels Downloader Features</h2>
+
+<p class="section-description">
+Enjoy a simple, lightweight and responsive video downloader interface.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="card-icon">⚡</div>
+<h3>Fast & Lightweight</h3>
+<p>
+A clean interface built with HTML, CSS and JavaScript.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">▣</div>
+<h3>Video Preview</h3>
+<p>
+Preview supported direct video links and local video files.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">📱</div>
+<h3>Mobile Friendly</h3>
+<p>
+Works with modern desktop, tablet and mobile browsers.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- DEVICE GUIDES -->
+
+<section class="content-section container">
+
+<h2 class="section-title">Download Facebook Reels on Any Device</h2>
+
+<p class="section-description">
+Use the responsive page on your preferred device.
+</p>
+
+<div class="two-grid">
+
+<div class="info-card">
+<h3>Facebook Reels Downloader for Android</h3>
+<p>
+Open the page in your mobile browser. Paste a direct video
+file URL, preview the video and download it if permitted
+by the video host.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Download Videos on iPhone</h3>
+<p>
+Use Safari or another modern browser. Supported video files
+can be previewed and saved depending on browser permissions.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Download Videos on PC</h3>
+<p>
+Open the downloader on your computer, paste a direct media
+URL or choose a local video file.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Download Facebook Reels in HD</h3>
+<p>
+Video quality depends on the original video source.
+This tool cannot increase the original video resolution.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- PRIVACY -->
+
+<section class="content-section container">
+
+<div class="notice">
+<strong>Important: Use Content Responsibly</strong><br>
+Download only videos you created, own, or have permission
+to save. Respect copyright, privacy and the source platform's
+terms. This independent website is not affiliated with Facebook
+or Meta.
+</div>
+
+<div class="two-grid">
+
+<div class="info-card">
+<h3>Can This Tool Download Every Facebook Reel?</h3>
+<p>
+No. A Facebook Reel page URL is not a direct video file.
+Frontend-only JavaScript cannot reliably extract protected
+Facebook media or bypass access restrictions.
+</p>
+</div>
+
+<div class="info-card">
+<h3>Your Privacy Matters</h3>
+<p>
+Selected local video files are previewed inside your browser.
+This standalone version does not upload your local video
+to a server.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- TOOL GUIDE -->
+
+<section class="content-section container">
+
+<div class="card">
+
+<h2 class="section-title">
+Facebook Reels Downloader – Online Video Helper
+</h2>
+
+<p class="section-description">
+Choose a supported direct video URL or select a local video
+to preview and save.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>1. Choose Source</h3>
+<p>Paste a direct video link or select a video file.</p>
+</div>
+
+<div class="card">
+<h3>2. Preview Video</h3>
+<p>Check your video before downloading.</p>
+</div>
+
+<div class="card">
+<h3>3. Save Video</h3>
+<p>Save the source file when the browser allows it.</p>
+</div>
+
+</div>
+
+<a href="#downloader" class="btn"
+style="display:block;text-align:center;margin-top:20px">
+↑ Open Facebook Reels Downloader
+</a>
+
+</div>
+</section>
+
+<!-- FAQ -->
+
+<section class="content-section container" id="faq">
+
+<div class="faq-layout">
+
+<div>
+<h2>Frequently Asked Questions</h2>
+<p style="color:var(--text);font-size:12px">
+Everything you need to know about Facebook Reels Downloader.
+</p>
+</div>
+
+<div class="faq-list">
+
+<div class="faq-item">
+<button class="faq-question">
+What is Facebook Reels Downloader? <span>＋</span>
+</button>
+<div class="faq-answer">
+Facebook Reels Downloader is a browser-based helper
+for saving videos you own or have permission to download.
+This frontend version works with direct video file links.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">
+How can I download a Facebook Reel? <span>＋</span>
+</button>
+<div class="faq-answer">
+Use Facebook's own download options where available.
+For a direct video file URL you are authorized to save,
+paste it into this tool and load the video.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">
+Is Facebook Reels Downloader free? <span>＋</span>
+</button>
+<div class="faq-answer">
+Yes, this page is free to use. Browser and source website
+restrictions may apply.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">
+Can I download Facebook Reels without an app? <span>＋</span>
+</button>
+<div class="faq-answer">
+You can use a browser to download direct video file links.
+A normal Facebook Reel page link may not work.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">
+Can I download Facebook Reels in HD? <span>＋</span>
+</button>
+<div class="faq-answer">
+Video quality depends on the original video file.
+This tool cannot create a higher resolution than the source.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">
+Does this tool work on Android and iPhone? <span>＋</span>
+</button>
+<div class="faq-answer">
+Yes, the page is responsive and works in modern mobile
+browsers. Download behavior depends on the browser.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">
+Can I download private Facebook Reels? <span>＋</span>
+</button>
+<div class="faq-answer">
+No. This tool does not access private content or bypass
+login and access controls.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">
+Why is my Facebook Reel not downloading? <span>＋</span>
+</button>
+<div class="faq-answer">
+A Facebook page URL is not a direct video file URL.
+Cross-origin restrictions and source permissions can
+prevent downloads.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">
+Is it safe to download Facebook Reels? <span>＋</span>
+</button>
+<div class="faq-answer">
+Only download videos you own or have permission to save.
+Follow applicable laws and the source platform's terms.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">
+Does this website store my video? <span>＋</span>
+</button>
+<div class="faq-answer">
+No. Selected local videos are previewed in your browser
+and are not uploaded to a server by this standalone page.
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
 </main>
 
+<!-- FOOTER -->
+
 <footer>
-  <div class="wrap">
-    Reels Saver is not affiliated with Facebook or Meta. Please respect the copyright of creators and download only content you have the right to save.
-  </div>
+<div class="container">
+
+<div class="footer-links">
+<a href="#features">About Us</a>
+<a href="mailto:contact@example.com">Contact Us</a>
+<a href="/privacy-policy/">Privacy Policy</a>
+<a href="/disclaimer/">Disclaimer</a>
+<a href="/terms-and-conditions/">Terms & Conditions</a>
+</div>
+
+<p>
+© <span id="year"></span> ReelsSave. All rights reserved.
+</p>
+
+<p>
+ReelsSave is an independent tool and is not affiliated
+with Facebook or Meta. Facebook is a trademark of
+Meta Platforms, Inc.
+</p>
+
+</div>
 </footer>
 
 <script>
-// 1) Cloudflare Worker URL yahan daalein (worker.js deploy karne ke baad), end me slash na lagayein.
-const WORKER_URL = "https://plain-dream-7642reels.manujnaina.workers.dev";
+(() => {
 
 const $ = id => document.getElementById(id);
-const urlEl = $("url"), msg = $("msg"), go = $("go"), result = $("result");
 
-function say(text, type){ msg.textContent = text; msg.className = type || ""; }
+const urlTab = $("urlTab");
+const fileTab = $("fileTab");
+const urlControls = $("urlControls");
+const chooseBtn = $("chooseBtn");
+const fileInput = $("fileInput");
+const videoUrl = $("videoUrl");
+const status = $("status");
+const preview = $("preview");
+const player = $("videoPlayer");
+const dropbox = $("dropbox");
 
-$("paste").addEventListener("click", async () => {
-  try {
-    urlEl.value = (await navigator.clipboard.readText()).trim();
-    urlEl.focus();
-  } catch (e) {
-    say("Clipboard is blocked. Long-press the box and paste the link.", "err");
+let currentSource = "";
+let currentName = "video";
+let localFile = false;
+let objectURL = "";
+
+function showMessage(message, type = "info") {
+  status.textContent = message;
+  status.className = "status show " + type;
+}
+
+function clearPreview() {
+  preview.classList.remove("show");
+
+  player.pause();
+  player.removeAttribute("src");
+  player.load();
+
+  if (objectURL) {
+    URL.revokeObjectURL(objectURL);
+    objectURL = "";
   }
+
+  currentSource = "";
+}
+
+function setMode(fileMode) {
+
+  urlTab.classList.toggle("active", !fileMode);
+  fileTab.classList.toggle("active", fileMode);
+
+  urlControls.style.display = fileMode ? "none" : "flex";
+  chooseBtn.style.display = fileMode ? "inline-block" : "none";
+
+  $("dropTitle").textContent = fileMode
+    ? "Choose a video file"
+    : "Paste a direct video URL below";
+
+  $("dropSub").textContent = fileMode
+    ? "Your video stays in your browser"
+    : "MP4, WebM or supported video URL";
+
+  showMessage(
+    fileMode
+      ? "Select a video file from your device."
+      : "Paste a direct media file URL.",
+    "info"
+  );
+}
+
+function showVideo(source, name, isLocal) {
+
+  clearPreview();
+
+  currentSource = source;
+  currentName = name || "video";
+  localFile = isLocal;
+
+  player.src = source;
+
+  $("fileName").textContent = currentName;
+
+  $("fileMeta").textContent = isLocal
+    ? "Local file - not uploaded"
+    : "Direct media link";
+
+  preview.classList.add("show");
+
+  player.load();
+
+  showMessage(
+    "Video loaded. Preview it before downloading.",
+    "success"
+  );
+}
+
+function isFacebookPage(value) {
+
+  try {
+    const host = new URL(value).hostname;
+
+    return /(^|\.)facebook\.com$/i.test(host) ||
+           /(^|\.)fb\.watch$/i.test(host);
+
+  } catch {
+    return false;
+  }
+}
+
+urlTab.addEventListener("click", () => setMode(false));
+
+fileTab.addEventListener("click", () => setMode(true));
+
+chooseBtn.addEventListener("click", () => {
+  fileInput.click();
 });
 
-urlEl.addEventListener("keydown", e => { if (e.key === "Enter") go.click(); });
+$("loadBtn").addEventListener("click", () => {
 
-go.addEventListener("click", async () => {
-  const link = urlEl.value.trim();
-  result.classList.remove("show");
+  const value = videoUrl.value.trim();
 
-  if (!/^https?:\/\/(www\.|m\.|web\.)?(facebook\.com|fb\.watch|fb\.com)\//i.test(link)) {
-    say("Paste a valid Facebook Reel or video link.", "err");
-    return;
-  }
-  if (WORKER_URL.includes("YOUR-WORKER-NAME")) {
-    say("Setup missing: add your Cloudflare Worker URL in index.html (WORKER_URL).", "err");
+  if (!value) {
+    showMessage("Please paste a video URL.", "error");
     return;
   }
 
-  go.disabled = true; go.textContent = "Checking...";
-  say("Fetching video details...");
+  let parsed;
 
   try {
-    const res = await fetch(WORKER_URL + "/?url=" + encodeURIComponent(link));
-    const data = await res.json();
-    if (!res.ok || data.error) throw new Error(data.error || "Something went wrong.");
+    parsed = new URL(value);
 
-    $("vtitle").textContent = data.title || "Facebook Reel";
-    const t = $("thumb");
-    if (data.thumbnail) { t.src = data.thumbnail; t.hidden = false; } else { t.hidden = true; }
+    if (!["http:", "https:"].includes(parsed.protocol)) {
+      throw new Error("Invalid URL");
+    }
 
-    [["hd", data.hd], ["sd", data.sd]].forEach(([id, file]) => {
-      const a = $(id);
-      if (file) { a.href = WORKER_URL + "/?dl=" + encodeURIComponent(file); a.hidden = false; }
-      else { a.hidden = true; }
+  } catch {
+    showMessage("Please enter a valid URL.", "error");
+    return;
+  }
+
+  if (isFacebookPage(value)) {
+
+    clearPreview();
+
+    showMessage(
+      "This is a Facebook page URL, not a direct video file. Frontend-only JavaScript cannot reliably extract Facebook-hosted video media. Use Facebook's own download option where available, or paste a direct video file URL you are authorized to save.",
+      "error"
+    );
+
+    return;
+  }
+
+  const filename = parsed.pathname.split("/").pop() || "video";
+
+  showVideo(value, filename, false);
+
+});
+
+function handleFile(file) {
+
+  if (!file) return;
+
+  if (!file.type.startsWith("video/")) {
+    showMessage("Please select a valid video file.", "error");
+    return;
+  }
+
+  objectURL = URL.createObjectURL(file);
+
+  showVideo(objectURL, file.name, true);
+
+}
+
+fileInput.addEventListener("change", event => {
+  handleFile(event.target.files[0]);
+});
+
+["dragenter", "dragover"].forEach(eventName => {
+
+  dropbox.addEventListener(eventName, event => {
+    event.preventDefault();
+    dropbox.classList.add("drag");
+  });
+
+});
+
+["dragleave", "drop"].forEach(eventName => {
+
+  dropbox.addEventListener(eventName, event => {
+    event.preventDefault();
+    dropbox.classList.remove("drag");
+  });
+
+});
+
+dropbox.addEventListener("drop", event => {
+  handleFile(event.dataTransfer.files[0]);
+});
+
+$("downloadBtn").addEventListener("click", async () => {
+
+  if (!currentSource) {
+    showMessage("Load a video first.", "error");
+    return;
+  }
+
+  if (localFile) {
+
+    const link = document.createElement("a");
+
+    link.href = currentSource;
+    link.download = currentName;
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    showMessage("Download started.", "success");
+
+    return;
+  }
+
+  try {
+
+    showMessage("Preparing your download...", "info");
+
+    const response = await fetch(currentSource, {
+      mode: "cors"
     });
 
-    result.classList.add("show");
-    say("Video found. Choose a quality to download.", "ok");
-  } catch (err) {
-    say(err.message || "Could not get the video. Try again.", "err");
-  } finally {
-    go.disabled = false; go.textContent = "Get video";
+    if (!response.ok) {
+      throw new Error("Video server returned an error.");
+    }
+
+    const blob = await response.blob();
+
+    if (
+      !blob.type.startsWith("video/") &&
+      blob.type !== "application/octet-stream"
+    ) {
+      throw new Error("URL did not return a video file.");
+    }
+
+    const temporaryURL = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = temporaryURL;
+
+    link.download = currentName.includes(".")
+      ? currentName
+      : "facebook-video.mp4";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => {
+      URL.revokeObjectURL(temporaryURL);
+    }, 30000);
+
+    showMessage("Download started successfully.", "success");
+
+  } catch (error) {
+
+    showMessage(
+      "The video host may block browser downloads through CORS. Try opening the direct video link and using your browser's Save Video option. " + error.message,
+      "error"
+    );
+
   }
+
 });
+
+/* FAQ ACCORDION */
+
+document.querySelectorAll(".faq-question").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const item = button.closest(".faq-item");
+
+    item.classList.toggle("open");
+
+    const answer = item.querySelector(".faq-answer");
+
+    answer.style.display = item.classList.contains("open")
+      ? "block"
+      : "none";
+
+  });
+
+});
+
+/* COPYRIGHT YEAR */
+
+$("year").textContent = new Date().getFullYear();
+
+setMode(false);
+
+})();
 </script>
+
 </body>
 </html>
