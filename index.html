@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facebook Reels Downloader - Download FB Reels Video in HD Free</title>
+<meta name="description" content="Free Facebook Reels downloader. Paste a public Facebook Reel link and download the video in HD or SD quality on mobile or PC. No app, no login.">
+<meta name="keywords" content="facebook reels downloader, fb reels download, download facebook reels, facebook video downloader">
+<meta property="og:title" content="Facebook Reels Downloader">
+<meta property="og:description" content="Paste a public Facebook Reel link and download it in HD. Free, no login.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F6FC; --ink:#10203F; --muted:#56637E; --line:#D5DDEE;
+  --blue:#2A56F0; --blue-dark:#1B3FC4; --surface:#FFFFFF; --ok:#12805C; --err:#B3261E;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#0D1324; --ink:#EAF0FF; --muted:#9AA8C7; --line:#26314F; --surface:#151D36; --blue:#6F8CFF; --blue-dark:#8FA5FF; --ok:#4CC9A0; --err:#FF8A80;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body)}
+a{color:var(--blue)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+header{padding:18px 0;border-bottom:1px solid var(--line)}
+.brand{font:800 20px var(--display);letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
+.hero{padding:56px 0 28px}
+h1{font:800 clamp(34px,7vw,56px)/1.05 var(--display);letter-spacing:-.03em;margin:0 0 14px}
+.lead{color:var(--muted);margin:0 0 28px;max-width:56ch}
+.tool{background:var(--surface);border:2px solid var(--ink);border-radius:14px;padding:18px;box-shadow:6px 6px 0 var(--blue)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+input[type=url]{flex:1 1 260px;min-width:0;font:inherit;padding:14px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+input[type=url]:focus,button:focus-visible,a.btn:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+button,a.btn{font:700 16px var(--display);padding:14px 22px;border-radius:10px;border:0;background:var(--blue);color:#fff;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+button:hover,a.btn:hover{background:var(--blue-dark)}
+button.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+button.ghost:hover{background:var(--paper)}
+button[disabled]{opacity:.6;cursor:wait}
+#msg{margin:14px 0 0;min-height:1.4em;font-weight:600}
+#msg.err{color:var(--err)} #msg.ok{color:var(--ok)}
+#result{display:none;margin-top:18px;padding-top:18px;border-top:1px dashed var(--line)}
+#result.show{display:flex;gap:16px;flex-wrap:wrap}
+#thumb{width:130px;aspect-ratio:9/16;object-fit:cover;border-radius:10px;background:var(--line)}
+#info{flex:1 1 220px}
+#vtitle{font:700 18px/1.3 var(--display);margin:0 0 12px;overflow-wrap:anywhere}
+.dl{display:flex;flex-direction:column;gap:10px;max-width:280px}
+section{padding:36px 0}
+h2{font:700 28px/1.2 var(--display);letter-spacing:-.02em;margin:0 0 16px}
+ol{padding-left:22px;margin:0} li{margin:0 0 10px}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{font:700 18px var(--display);cursor:pointer}
+details p{margin:10px 0 0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:26px 0 44px;color:var(--muted);font-size:15px}
+@media (prefers-reduced-motion:no-preference){button,a.btn{transition:background .15s}}
+@media (max-width:480px){.tool{padding:14px;box-shadow:4px 4px 0 var(--blue)} #thumb{width:100px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="./">Reels Saver</a></div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Facebook Reels Downloader</h1>
+    <p class="lead">Paste the link of a public Facebook Reel and save the video to your phone or computer in HD or SD quality. No app and no login.</p>
+
+    <div class="tool">
+      <div class="row">
+        <input id="url" type="url" inputmode="url" placeholder="https://www.facebook.com/reel/..." aria-label="Facebook Reel link" autocomplete="off">
+        <button id="paste" class="ghost" type="button">Paste</button>
+        <button id="go" type="button">Get video</button>
+      </div>
+      <p id="msg" role="status" aria-live="polite"></p>
+
+      <div id="result">
+        <img id="thumb" alt="" hidden>
+        <div id="info">
+          <p id="vtitle"></p>
+          <div class="dl">
+            <a id="hd" class="btn" hidden>Download HD</a>
+            <a id="sd" class="btn" hidden>Download SD</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>How to download a Facebook Reel</h2>
+    <ol>
+      <li>Open the Reel in the Facebook app or browser, tap Share, then Copy link.</li>
+      <li>Paste the link in the box above.</li>
+      <li>Tap Get video, then choose HD or SD to save the file.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <details><summary>Does it work for private videos?</summary><p>No. Only public Reels and videos can be downloaded. If the video is private or limited to friends, the tool will show an error.</p></details>
+    <details><summary>Where is the video saved?</summary><p>On a phone it goes to your Downloads folder or the browser's download list. On a computer it goes to the Downloads folder.</p></details>
+    <details><summary>Which links are supported?</summary><p>Links from facebook.com, m.facebook.com and fb.watch, including Reels and normal public videos.</p></details>
+    <details><summary>Can I reuse any video I download?</summary><p>Download only your own videos or videos you have permission to save. Reels belong to their creators.</p></details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Reels Saver is not affiliated with Facebook or Meta. Please respect the copyright of creators and download only content you have the right to save.
+  </div>
+</footer>
+
+<script>
+// 1) Cloudflare Worker URL yahan daalein (worker.js deploy karne ke baad), end me slash na lagayein.
+const WORKER_URL = "https://plain-dream-7642reels.manujnaina.workers.dev";
+
+const $ = id => document.getElementById(id);
+const urlEl = $("url"), msg = $("msg"), go = $("go"), result = $("result");
+
+function say(text, type){ msg.textContent = text; msg.className = type || ""; }
+
+$("paste").addEventListener("click", async () => {
+  try {
+    urlEl.value = (await navigator.clipboard.readText()).trim();
+    urlEl.focus();
+  } catch (e) {
+    say("Clipboard is blocked. Long-press the box and paste the link.", "err");
+  }
+});
+
+urlEl.addEventListener("keydown", e => { if (e.key === "Enter") go.click(); });
+
+go.addEventListener("click", async () => {
+  const link = urlEl.value.trim();
+  result.classList.remove("show");
+
+  if (!/^https?:\/\/(www\.|m\.|web\.)?(facebook\.com|fb\.watch|fb\.com)\//i.test(link)) {
+    say("Paste a valid Facebook Reel or video link.", "err");
+    return;
+  }
+  if (WORKER_URL.includes("YOUR-WORKER-NAME")) {
+    say("Setup missing: add your Cloudflare Worker URL in index.html (WORKER_URL).", "err");
+    return;
+  }
+
+  go.disabled = true; go.textContent = "Checking...";
+  say("Fetching video details...");
+
+  try {
+    const res = await fetch(WORKER_URL + "/?url=" + encodeURIComponent(link));
+    const data = await res.json();
+    if (!res.ok || data.error) throw new Error(data.error || "Something went wrong.");
+
+    $("vtitle").textContent = data.title || "Facebook Reel";
+    const t = $("thumb");
+    if (data.thumbnail) { t.src = data.thumbnail; t.hidden = false; } else { t.hidden = true; }
+
+    [["hd", data.hd], ["sd", data.sd]].forEach(([id, file]) => {
+      const a = $(id);
+      if (file) { a.href = WORKER_URL + "/?dl=" + encodeURIComponent(file); a.hidden = false; }
+      else { a.hidden = true; }
+    });
+
+    result.classList.add("show");
+    say("Video found. Choose a quality to download.", "ok");
+  } catch (err) {
+    say(err.message || "Could not get the video. Try again.", "err");
+  } finally {
+    go.disabled = false; go.textContent = "Get video";
+  }
+});
+</script>
+</body>
+</html>
